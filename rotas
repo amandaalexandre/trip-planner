@@ -1,0 +1,10 @@
+Chamando a latitute e longitude dos resultados:
+https://geocode.search.hereapi.com/v1/geocode?q=Paris&apiKey=6CtvgYh-JhsXNrxpw1FAH3ArzYNyRyZbCA2696AtN9w
+Pedir nome, latitude, longitude
+
+Chamando a rota:
+https://intermodal.router.hereapi.com/v8/routes
+    ?apiKey=6CtvgYh-JhsXNrxpw1FAH3ArzYNyRyZbCA2696AtN9w
+    &alternatives=1
+    &destination=52.40358749909618,13.058351363288239
+    &origin=52.53105637575095,13.384944833815183

@@ -1,0 +1,265 @@
+{
+	"routes": [
+		{
+			"id": "R0",
+			"sections": [
+				{
+					"id": "R0-S0",
+					"type": "pedestrian",
+					"departure": {
+						"time": "2023-08-31T20:26:00+02:00",
+						"place": {
+							"type": "place",
+							"location": {
+								"lat": 52.531056,
+								"lng": 13.384945
+							}
+						}
+					},
+					"arrival": {
+						"time": "2023-08-31T20:45:00+02:00",
+						"place": {
+							"name": "S+U Berlin Hauptbahnhof, Ampelübergang Invalidenstraße",
+							"type": "accessPoint",
+							"location": {
+								"lat": 52.526565,
+								"lng": 13.37044
+							}
+						}
+					},
+					"transport": {
+						"mode": "pedestrian"
+					}
+				},
+				{
+					"id": "R0-S1",
+					"type": "pedestrian",
+					"departure": {
+						"time": "2023-08-31T20:45:00+02:00",
+						"place": {
+							"name": "S+U Berlin Hauptbahnhof, Ampelübergang Invalidenstraße",
+							"type": "accessPoint",
+							"location": {
+								"lat": 52.526565,
+								"lng": 13.37044
+							}
+						}
+					},
+					"arrival": {
+						"time": "2023-08-31T20:47:00+02:00",
+						"place": {
+							"name": "S+U Berlin Hauptbahnhof",
+							"type": "station",
+							"location": {
+								"lat": 52.525605,
+								"lng": 13.369075
+							},
+							"id": "110590172"
+						}
+					},
+					"spans": [
+						{
+							"walkAttributes": [
+								"indoor"
+							]
+						}
+					],
+					"transport": {
+						"mode": "pedestrian"
+					}
+				},
+				{
+					"id": "R0-S2",
+					"type": "transit",
+					"departure": {
+						"time": "2023-08-31T20:47:00+02:00",
+						"place": {
+							"name": "S+U Berlin Hauptbahnhof",
+							"type": "station",
+							"location": {
+								"lat": 52.525605,
+								"lng": 13.369075
+							},
+							"id": "110590172"
+						},
+						"delay": 0
+					},
+					"arrival": {
+						"time": "2023-08-31T21:22:00+02:00",
+						"place": {
+							"name": "S Potsdam Hauptbahnhof",
+							"type": "station",
+							"location": {
+								"lat": 52.391447,
+								"lng": 13.067157
+							},
+							"id": "110334944"
+						},
+						"delay": 0
+					},
+					"transport": {
+						"mode": "cityTrain",
+						"name": "S7",
+						"category": "Suburban Railway",
+						"color": "#6d61f2",
+						"headsign": "S Potsdam Hauptbahnhof",
+						"shortName": "S7"
+					},
+					"agency": {
+						"id": "49030_d643a9d",
+						"name": "S-Bahn Berlin GmbH",
+						"website": "https://sbahn.berlin"
+					}
+				},
+				{
+					"id": "R0-S3",
+					"type": "pedestrian",
+					"departure": {
+						"time": "2023-08-31T21:22:00+02:00",
+						"place": {
+							"name": "S Potsdam Hauptbahnhof",
+							"type": "station",
+							"location": {
+								"lat": 52.391447,
+								"lng": 13.067157
+							},
+							"id": "110334944"
+						}
+					},
+					"arrival": {
+						"time": "2023-08-31T21:24:00+02:00",
+						"place": {
+							"name": "S Potsdam Hauptbahnhof, Zugang Babelsberger Straße/Landtag",
+							"type": "accessPoint",
+							"location": {
+								"lat": 52.392565,
+								"lng": 13.066847
+							}
+						}
+					},
+					"spans": [
+						{
+							"walkAttributes": [
+								"indoor"
+							]
+						}
+					],
+					"transport": {
+						"mode": "pedestrian"
+					}
+				},
+				{
+					"id": "R0-S4",
+					"type": "pedestrian",
+					"travelSummary": {
+						"duration": 67,
+						"length": 67
+					},
+					"departure": {
+						"time": "2023-08-31T21:24:00+02:00",
+						"place": {
+							"name": "S Potsdam Hauptbahnhof, Zugang Babelsberger Straße/Landtag",
+							"type": "accessPoint",
+							"location": {
+								"lat": 52.392565,
+								"lng": 13.066847
+							}
+						}
+					},
+					"arrival": {
+						"time": "2023-08-31T21:25:07+02:00",
+						"place": {
+							"name": "Hauptbahnhof Nord",
+							"type": "dockingStation",
+							"location": {
+								"lat": 52.392881,
+								"lng": 13.066006
+							}
+						}
+					},
+					"transport": {
+						"mode": "pedestrian"
+					}
+				},
+				{
+					"id": "R0-S5",
+					"type": "rented",
+					"preActions": [
+						{
+							"action": "setup",
+							"duration": 60
+						}
+					],
+					"postActions": [
+						{
+							"action": "park",
+							"duration": 60
+						}
+					],
+					"departure": {
+						"time": "2023-08-31T21:26:07+02:00",
+						"place": {
+							"name": "Hauptbahnhof Nord",
+							"type": "dockingStation",
+							"location": {
+								"lat": 52.392881,
+								"lng": 13.066006
+							}
+						}
+					},
+					"arrival": {
+						"time": "2023-08-31T21:36:14+02:00",
+						"place": {
+							"name": "Friedrich-Ebert-Straße / Mittelstraße",
+							"type": "dockingStation",
+							"location": {
+								"lat": 52.402655,
+								"lng": 13.058066
+							}
+						}
+					},
+					"transport": {
+						"mode": "bicycle"
+					},
+					"agency": {
+						"id": "nextbike_dc",
+						"name": "Potsdam Rad",
+						"website": "https://www.nextbike.de/de/potsdam/"
+					}
+				},
+				{
+					"id": "R0-S6",
+					"type": "pedestrian",
+					"travelSummary": {
+						"duration": 106,
+						"length": 105
+					},
+					"departure": {
+						"time": "2023-08-31T21:37:14+02:00",
+						"place": {
+							"name": "Friedrich-Ebert-Straße / Mittelstraße",
+							"type": "dockingStation",
+							"location": {
+								"lat": 52.402655,
+								"lng": 13.058066
+							}
+						}
+					},
+					"arrival": {
+						"time": "2023-08-31T21:39:00+02:00",
+						"place": {
+							"type": "place",
+							"location": {
+								"lat": 52.403588,
+								"lng": 13.058351
+							}
+						}
+					},
+					"transport": {
+						"mode": "pedestrian"
+					}
+				}
+			]
+		}
+	]
+}
