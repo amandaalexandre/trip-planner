@@ -94,8 +94,8 @@ function Main() {
     // Getting destination's geocodes and doing the routing API call
     fetch(`https://geocode.search.hereapi.com/v1/geocode?q=${match.address.label}&apiKey=${hereApiKey}`)
     .then(response => response.json())
-    .then(data => fetch('https://intermodal.router.hereapi.com/v8/routes?apiKey=6CtvgYh-JhsXNrxpw1FAH3ArzYNyRyZbCA2696AtN9w&destination=52.40358749909618,13.058351363288239&origin=52.53105637575095,13.384944833815183'))
-    /* .then(data => fetch(`https://intermodal.router.hereapi.com/v8/routes?apiKey=${hereApiKey}&destination=${data.items[0].position.lat},${data.items[0].position.lng}&origin=${lat},${lon}`)) */
+/*     .then(data => fetch('https://intermodal.router.hereapi.com/v8/routes?apiKey=6CtvgYh-JhsXNrxpw1FAH3ArzYNyRyZbCA2696AtN9w&destination=52.40358749909618,13.058351363288239&origin=52.53105637575095,13.384944833815183')) */
+    .then(data => fetch(`https://intermodal.router.hereapi.com/v8/routes?apiKey=${hereApiKey}&destination=${data.items[0].position.lat},${data.items[0].position.lng}&origin=${lat},${lon}`))
     .then(res2 => res2.json())
     .then(data2 => {
       console.log(data2)
