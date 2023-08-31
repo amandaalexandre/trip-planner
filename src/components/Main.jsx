@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import '../styles/main.css';
+import {SiUber} from 'react-icons/si';
+import {RiTaxiLine} from 'react-icons/ri'
+import {FaWalking, FaBusAlt, FaCar} from 'react-icons/fa'
 
 function Main() {
   //User's IP
@@ -91,12 +94,15 @@ function Main() {
     // Getting destination's geocodes and doing the routing API call
     fetch(`https://geocode.search.hereapi.com/v1/geocode?q=${match.address.label}&apiKey=${hereApiKey}`)
     .then(response => response.json())
-    .then(data => fetch(`https://intermodal.router.hereapi.com/v8/routes?apiKey=${hereApiKey}&destination=${data.items[0].position.lat},${data.items[0].position.lng}&origin=${lat},${lon}`))
+    .then(data => fetch('https://intermodal.router.hereapi.com/v8/routes?apiKey=6CtvgYh-JhsXNrxpw1FAH3ArzYNyRyZbCA2696AtN9w&destination=52.40358749909618,13.058351363288239&origin=52.53105637575095,13.384944833815183'))
+    /* .then(data => fetch(`https://intermodal.router.hereapi.com/v8/routes?apiKey=${hereApiKey}&destination=${data.items[0].position.lat},${data.items[0].position.lng}&origin=${lat},${lon}`)) */
     .then(res2 => res2.json())
     .then(data2 => {
       console.log(data2)
-      setNotice(data2.notices[0].title)
-      setResults(data2.routes)
+      if (data2.notices) {
+        setNotice(data2.notices[0].title)
+      } 
+      setResults(data2.routes[0].sections)
     })
     .catch(error => console.error('Error fetching geocode data from your chosen city.', error))
 
@@ -113,7 +119,7 @@ function Main() {
   return (
     <main className='main'>
       <h1>Find your next adventure</h1>
-      <p>Type your destination and we'll show you how long you'll take to get there. </p>
+      <p>Type your destination and we'll show you how you'll get there. </p>
       <br />
       <span>
         I wanna go to &nbsp;
@@ -139,7 +145,27 @@ function Main() {
       )}
 
       {results.length > 0 && (
-        results.map(result => <p>{result}</p>)
+        results.map(result => 
+        <div key={result.id} className='main-result-card'>
+           {/* Mode of transportation */}
+           <div>
+              {/* Conditionally render icons based on result.type */}
+              {result.type === 'rented' && <SiUber className='mode-icon' />}
+              {result.type === 'vehicle' && <FaCar className='mode-icon' />}
+              {result.type === 'transit' && <FaBusAlt className='mode-icon' />}
+              {result.type === 'taxi' && <RiTaxiLine className='mode-icon' />}
+              {result.type === 'pedestrian' && <FaWalking className='mode-icon' />}
+          </div>
+
+          <p>{result.type.charAt(0).toUpperCase()+result.type.substring(1)} </p>
+          <p>{result.transport.mode.charAt(0).toUpperCase()+result.transport.mode.substring(1)}</p>
+          
+          <p>{(result.type) === 'rented' || result.type === 'transit'  ? (<a href={result.agency.website}>{result.agency.name}</a>):null}</p>
+          
+          <p>Departure: {result.departure.time}</p>
+          <p>Arrival: {result.arrival.time}</p>
+          <p>Place: {result.arrival.place.name || 'You arrived!'}</p>
+        </div>)
       )} 
 
     </main>
