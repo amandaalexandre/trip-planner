@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import '../styles/main.css';
-import {SiUber} from 'react-icons/si';
+/* import {SiUber} from 'react-icons/si';
 import {RiTaxiLine} from 'react-icons/ri'
-import {FaWalking, FaBusAlt, FaCar} from 'react-icons/fa'
+import {FaWalking, FaBusAlt, FaCar} from 'react-icons/fa' */
+import RouteCard from './RouteCard';
 
 function Main() {
   //User's IP
@@ -94,7 +95,7 @@ function Main() {
     // Getting destination's geocodes and doing the routing API call
     fetch(`https://geocode.search.hereapi.com/v1/geocode?q=${match.address.label}&apiKey=${hereApiKey}`)
     .then(response => response.json())
-/*     .then(data => fetch('https://intermodal.router.hereapi.com/v8/routes?apiKey=6CtvgYh-JhsXNrxpw1FAH3ArzYNyRyZbCA2696AtN9w&destination=52.40358749909618,13.058351363288239&origin=52.53105637575095,13.384944833815183')) */
+    /* .then(data => fetch('https://intermodal.router.hereapi.com/v8/routes?apiKey=6CtvgYh-JhsXNrxpw1FAH3ArzYNyRyZbCA2696AtN9w&destination=40.758701,-111.876183&origin=40.017624,-105.27966')) */
     .then(data => fetch(`https://intermodal.router.hereapi.com/v8/routes?apiKey=${hereApiKey}&destination=${data.items[0].position.lat},${data.items[0].position.lng}&origin=${lat},${lon}`))
     .then(res2 => res2.json())
     .then(data2 => {
@@ -107,6 +108,13 @@ function Main() {
     .catch(error => console.error('Error fetching geocode data from your chosen city.', error))
 
   }
+
+  const routes = results.map(result => {
+    return <RouteCard
+            key={result.id}
+            {...result}
+            />
+  })
 
   if (loading) {
     return <p>Loading...</p>;
@@ -141,32 +149,17 @@ function Main() {
       (You're currently in {city}, {country}) 
 
       {notice && (
-        <div className='main-notice'><p>{notice}</p></div>
+        <div className='main-notice'><p>{notice}</p>
+        
+        <p>This error probably occured because we have no data about the routes. This app works better if you're in Europe or the US.</p>
+        
+        </div>
       )}
 
-      {results.length > 0 && (
-        results.map(result => 
-        <div key={result.id} className='main-result-card'>
-           {/* Mode of transportation */}
-           <div>
-              {/* Conditionally render icons based on result.type */}
-              {result.type === 'rented' && <SiUber className='mode-icon' />}
-              {result.type === 'vehicle' && <FaCar className='mode-icon' />}
-              {result.type === 'transit' && <FaBusAlt className='mode-icon' />}
-              {result.type === 'taxi' && <RiTaxiLine className='mode-icon' />}
-              {result.type === 'pedestrian' && <FaWalking className='mode-icon' />}
-          </div>
-
-          <p>{result.type.charAt(0).toUpperCase()+result.type.substring(1)} </p>
-          <p>{result.transport.mode.charAt(0).toUpperCase()+result.transport.mode.substring(1)}</p>
-          
-          <p>{(result.type) === 'rented' || result.type === 'transit'  ? (<a href={result.agency.website}>{result.agency.name}</a>):null}</p>
-          
-          <p>Departure: {result.departure.time}</p>
-          <p>Arrival: {result.arrival.time}</p>
-          <p>Place: {result.arrival.place.name || 'You arrived!'}</p>
-        </div>)
-      )} 
+      <section className='card-grid'>
+        {routes} 
+      </section>
+      
 
     </main>
   );

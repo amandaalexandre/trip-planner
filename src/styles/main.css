@@ -3,7 +3,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
+    min-height: 70vh;
+    padding: 2rem 0;
 }
 
 .search-suggestions {
@@ -23,25 +24,20 @@
 
 .main-notice {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap:0.5rem;
     padding: 2rem;
-    background-color: var(--beige);
-    color: var(--dark-green);
+    background-color: var(--blue);
+    color: var(--white);
     width: 750px;
-    height: 5rem;
 }
 
-.main-result-card {
-    border: 1px solid var(--beige);
-    padding: 1rem;
-    width: 350px;
-    border-radius: 10px;
-    margin: 1rem;
-    background-color: var(--dark-green);
-}
-
-.mode-icon {
-    height: 40px;
-    color: var(--beige);
+.card-grid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }
