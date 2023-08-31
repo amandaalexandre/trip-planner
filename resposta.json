@@ -1,0 +1,60 @@
+{
+	"point": {
+		"lat": -2.6495,
+		"lon": -44.3044
+	},
+	"country": {
+		"name": "Brazil",
+		"code": "BR",
+		"flag_urls": {
+			"svg": "http://upload.wikimedia.org/wikipedia/commons/0/05/Flag_of_Brazil.svg",
+			"png": "https://flagsapi.com/BR/flat/64.png"
+		},
+		"official_name": "República Federativa do Brasil",
+		"iso_3": "BRA",
+		"dialing_code": "76",
+		"currency_codes": [
+			"BRL"
+		],
+		"emoji": {
+			"slack_emoji": ":flag-BR:",
+			"discord_emoji": ":flag_br:",
+			"symbol": "🇧🇷"
+		},
+		"tourism_slogan": "Brasil – sensational!",
+		"boundingbox": [
+			-33.8689056,
+			5.2695808,
+			-73.9830625,
+			-28.6289646
+		],
+		"currency": {
+			"name": "Brazilian Real",
+			"code": "BRL",
+			"symbol": "R$"
+		}
+	},
+	"locationInfo": {
+		"country": "BR",
+		"region": "Maranhao",
+		"postal_code": "65000",
+		"city": "São Luís"
+	},
+	"portable": {
+		"country_code": "BR",
+		"region": "Maranhao",
+		"postal_code": "65000",
+		"admin_area_1": "São Luís",
+		"timezone": {
+			"name": "America/Fortaleza",
+			"alias_of": null,
+			"utc_offset": -180,
+			"utc_offsetStr": "-03:00",
+			"dst_offset": -180,
+			"dst_offsetStr": "-03:00",
+			"current_time": "2023-08-30T03:48:08-03:00"
+		}
+	},
+	"legacy": {},
+	"ip": "186.244.54.65"
+}
